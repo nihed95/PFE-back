@@ -1,0 +1,91 @@
+<div   bsModal #ModalC class="modal fade"  tabindex="-1"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+   
+    <div class="modal-primary modal-lg"  role="document">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <h4 class="modal-title">Copier une gamme </h4>
+                <button type="button" class="close" (click)="myModal.hide()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+  
+            <div class="modal-body ">
+             
+              
+              <div class="row">
+                    
+                <div class="col-sm-12">
+              <div class="form-group row">
+                <div class="col">
+                <div class="col-md-24">
+                  <label for="name">Nom</label>
+                    <input type="text" class="form-control" id="nom" placeholder="Saisir le nom de la gamme">
+                 </div>
+              </div>
+              <div class="col">
+                <div class="col-md-24">
+                  <label for="ccnumber">Désignation</label>
+                  <input type="text" class="form-control" id="designation" placeholder="Saisir la désignation de la gamme">
+               </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            
+                <div class="row">
+                    
+                    <div class="col-sm-12">
+                  <div class="form-group row">
+                    <div class="col">
+                    <div class="col-md-24">
+                      <label for="name">Description</label>
+                      <input type="text" class="form-control" id="description" placeholder="Saisir la description de la gamme">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="col-md-24">
+                      <label for="name">Indice</label>
+                      <input type="text" class="form-control" id="indice" placeholder="L'indice de cette gamme">
+                    </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="row">
+                       
+                    <div class="col-sm-12">
+                  <div class="form-group row">
+                    <div class="col">
+                    <div class="col-md-24">
+                      <label for="name">Article</label>
+                      <input type="text" class="form-control" id="article" placeholder="Saisir l'article décrivant cette gamme">
+                    </div>
+                    </div>
+                    <div class="col">
+                    <div class="col-md-24">
+                      <label for="name">Statut</label>
+                      <div>
+                          <select id="select1" name="select1" class="form-control">
+                            <option value="0">Please select</option>
+                            <option value="1">Active</option>
+                            <option value="2">Inactive</option>
+                            <option value="3">Encours</option>
+                          </select>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                    </div>
+                  </div>
+                  
+                  
+              
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Annuler</button>
+                <button type="button" class="btn btn-primary">Ajouter</button>
+            </div>
+        </div>
+    </div>
+  
+  
