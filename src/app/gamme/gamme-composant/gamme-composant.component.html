@@ -1,0 +1,203 @@
+<br>
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="card">
+          <div class="modal-header">
+            <div class="card-header">
+              <i class="fa fa-align-justify"> Liste des gammes   </i>
+         
+              
+            
+            </div>
+          </div>
+          
+            <div class="card-body">
+              <div style="padding-left: 20cm;">
+               <button style="width: 100px;" type="button" class="btn btn-block btn-primary" data-toggle="modal" (click)="myModal.show()"> 
+          <i class="fa fa-plus "></i> &nbsp;
+         <Strong>Ajouter </Strong></button>
+              </div>
+               <br>
+               <div class="col-md-12 mx-auto">
+                <div class="md-form">
+                  
+                  <div class="input-group">
+                    <span class="input-group-prepend">
+                      <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </span>
+                  <input
+                    type="text"
+                    [(ngModel)]="term"
+                    class="form-control"
+                    id="gamme"
+                    placeholder="Chercher"
+                    mdbInput
+                  />
+                 
+                </div>
+                </div>
+              </div>
+              <br>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Désignation</th>
+                    <th>Description </th>
+                    <th>Indice</th>
+                    <th>Article</th>
+                    <th> Statut </th>
+                    <th>Opérations</th>
+                    <th>Copier</th>
+                    <th>Dupliquer</th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let gamme of gammes | filter:term |paginate:{itemsPerPage: 10, currentPage:page}">
+                      <td>{{gamme.nom}}</td>
+                      <td>{{gamme.desgination}}</td>
+                      <td>{{gamme.description}}</td>
+                      <td>{{gamme.indice}}</td>
+                      <td>{{gamme.article}}</td>
+                      <td>{{gamme.status}}</td>
+                  
+                    <td>
+                      <table>
+                        <tr  *ngFor="let op of gamme.operations ;let i=index; " (click)="selectRowSelected(op);" >
+                          {{op.nom}}
+                        </tr>
+                      </table>
+                    </td>
+                    <td >  
+                      <i type="button"  class="fa fa-floppy-o fa-lg fa-2x mt-1" (click)="copierGamme(gamme.id)"></i>  
+                    </td>    
+                     <td >  
+                      <i type="button"  class="fa fa-copy fa-lg fa-2x mt-1"></i>  
+                    </td>           
+                  </tr>
+                </tbody>
+              </table>
+       
+              <pagination-controls (pageChange)="page = $event"> </pagination-controls >
+          
+            </div>
+            </div>
+          </div>
+        </div>
+      
+        <div   bsModal  #myModal="bs-modal" class="modal fade"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+   
+          <div class="modal-primary modal-dialog modal-lg" role="document" >
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">Ajouter une gamme </h4>
+                      <button type="button" class="close" (click)="myModal.hide()">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+        
+                  <div class="modal-body">
+                   
+                    
+                    <div class="row">
+                          
+                      <div class="col-sm-12">
+                    <div class="form-group row">
+                      <div class="col">
+                      <div class="col-md-24">
+                        <label for="nom">Nom</label>
+                          <input type="text" class="form-control" id="nom" placeholder="Saisir le nom de la gamme"
+                         [(ngModel)]="gammeAdd.nom" 
+                  name="nom"
+                  required  #nom="ngModel">
+                       </div>
+                    </div>
+                    <div class="col">
+                      <div class="col-md-24">
+                        <label for="desgination">Désignation</label>
+                        <input type="text" class="form-control" id="desgination" placeholder="Saisir la désignation de la gamme"
+                        [(ngModel)]="gammeAdd.desgination" 
+                name="desgination"
+                required  #desgination="ngModel" 
+                        >
+                     </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  
+                      <div class="row">
+                          
+                          <div class="col-sm-12">
+                        <div class="form-group row">
+                          <div class="col">
+                          <div class="col-md-24">
+                            <label for="description">Description</label>
+                            <input type="text" class="form-control" id="description" placeholder="Saisir la description de la gamme"
+                            [(ngModel)]="gammeAdd.description" 
+                            name="description"
+                            required  #description="ngModel" >
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="col-md-24">
+                            <label for="indice">Indice</label>
+                            <input type="text" class="form-control" id="indice" placeholder="L'indice de cette gamme"
+                            [(ngModel)]="gammeAdd.indice" 
+                            name="indice"
+                            required  #indice="ngModel">
+                          </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                             
+                          <div class="col-sm-12">
+                        <div class="form-group row">
+                          <div class="col">
+                          <div class="col-md-24">
+                            <label for="article">Article</label>
+                            <input type="text" class="form-control" id="article" placeholder="Saisir l'article décrivant cette gamme"
+                            [(ngModel)]="gammeAdd.article" 
+                            name="indice"
+                            required  #indice="ngModel" >             
+                           </div>
+                          </div>
+                          <div class="col">
+                          <div class="col-md-24">
+                            <label for="status">Statut</label>
+                            <div>
+                                <select id="status" name="status" class="form-control"
+                                [(ngModel)]="gammeAdd.status" 
+                                name="status"
+                                
+                                required  #status="ngModel" >
+                                  <option value="0">Please select</option>
+                                  <option value="ACTIF">ACTIF</option>
+                                  <option value="INACTIF">Inactive</option>
+                                 
+                                </select>
+                              </div>
+                          </div>
+                      </div>
+                          </div>
+                          </div>
+                        </div>
+                        
+                        
+                    
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Annuler</button>
+                      <button type="button" class="btn btn-primary" type="submit" (click)="onSubmit()" >Ajouter</button>
+                  </div>
+           
+              </div>
+          </div>
+        
+        
+        </div>
+        
+        

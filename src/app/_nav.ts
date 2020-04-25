@@ -8,9 +8,9 @@ export const navItems: INavData[] = [
     url: '/theme/colors',
     icon: 'icon-drop'
   },
-  {
+ /* {
     name: 'Operations',
-    url: '/theme/typography',
+    url: '/gamme/gamme-operation',
     icon: 'icon-pencil'
   },
   {
@@ -19,9 +19,28 @@ export const navItems: INavData[] = [
     
 
     icon: 'icon-star'
-  },
- 
+  },*/
+
   {
+    name: 'gamme',
+    url: '/gamme',
+    icon: 'icon-cursor',
+    children: [
+      {
+        name: 'gammes',
+        url: '/gamme/gammes',
+        icon: 'icon-cursor'
+      },
+      {
+        name: 'gammeOperation',
+        url: '/gamme/gammeOperation',
+        icon: 'icon-cursor'
+      }
+    
+   
+    ]},
+ 
+{
     title: true,
     name: 'theme'
   },

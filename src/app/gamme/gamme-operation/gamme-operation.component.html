@@ -1,0 +1,518 @@
+<div class="row">
+ 
+<div class="col-6 col-xl-6">
+  
+    <div class="card">
+      <div class="card-header  text-white bg-primary">
+        Gamme
+      </div>
+      <div class="card-body">
+      <form [formGroup]="gammeForm">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="nom">Nom</label>
+          <div class="col-sm-6">
+            <input type="text" id="nom" name="nom" class="form-control" formControlName="nom">
+          </div>
+        </div>    
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="article">Article</label>
+          <div class="col-sm-6">
+            <input type="text" id="article" name="article" class="form-control" formControlName="article"> 
+          </div>
+        </div>    
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="indice">Indice</label>
+          <div class="col-sm-6">
+            <input type="text" id="indice" name="indice" class="form-control" formControlName="indice" >
+          </div>
+        </div> 
+      </form> 
+      </div>
+    </div>
+
+    <div class="card">
+      <div class=" card-header  text-white bg-primary">
+        Les Operations
+      </div>
+      <div class="card-body">
+        
+          <!--   <table class="table">
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                <th>desgination</th>
+                <th>description</th>
+                <th>indice</th>
+                <th>article</th>
+                </tr>
+              </thead>
+            <tbody>
+
+              <tr *ngFor="let gamme of gammes; let i = index;">
+              
+                <td>
+                  <input [(ngModel)]="gamme[i].nom" class="form-control" type="text" />
+                </td>
+                <td>
+                  <input [(ngModel)]="gamme[i].desgination" class="form-control" type="text" />
+                </td>
+                <td>
+                  <input [(ngModel)]="gamme[i].description" class="form-control" type="text" />
+                </td>
+                <td>
+                  <input [(ngModel)]="gamme[i].indice" class="form-control" type="text" />
+                </td>
+                <td>
+                  <input [(ngModel)]="gamme[i].article" class="form-control" type="text" />
+                </td>
+             
+    
+            
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              
+
+              <td  (click)="MyModalM.show()" >
+                <i class="fa fa-plus fa-2x"></i>
+              </td>
+            </tr>
+            </tbody>
+</table> -->
+
+
+ 
+    
+      <div class="card">
+     
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Réference
+                </th>
+                <th>Type Operation</th>
+           
+              </tr>
+            </thead>
+            <tbody>
+             
+              <tr *ngFor="let op of gamme.operations">
+             
+            
+                    <td>{{op.nom}}</td>
+                    <td>{{op.reference}}</td>
+                    <td>{{op.typeOperation}}</td>
+
+                 
+                     
+            </tr>
+         
+          
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+               
+              
+
+              <td  (click)="MyModalM.show()" >
+                <i class="fa fa-plus fa-2x"></i>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </div>
+      </div>
+ 
+  
+ 
+    
+
+  <!--   <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                
+                <th>Title 1</th>
+                <th>Title 2</th>
+                <th>Title 3</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dynamic of dynamicArray; let i = index;">
+           
+                <td>
+                  <input [(ngModel)]="dynamicArray[i].title1" class="form-control" type="text" />
+                </td>
+                <td>
+                  <input [(ngModel)]="dynamicArray[i].title2" class="form-control" type="text" />
+                </td>
+                <td>
+                  <input [(ngModel)]="dynamicArray[i].title3" class="form-control" type="text"/>
+                </td>
+                  <td (click)="deleteRow(i)">
+                    <i class="fa fa-trash fa-2x"></i>
+                  </td> -->
+
+   <!--          </tr>
+            <tr>
+                <td></td>
+                <td></td>
+               
+
+              <td (click)="addRow(i)">
+                <i class="fa fa-plus fa-2x"></i>
+              </td>
+            </tr>
+        </tbody>
+    </table> --> 
+ 
+
+
+</div>
+
+
+
+
+</div>
+</div>
+
+  
+  <div class="col-6 col-xl-6">
+    <div class="card">
+      <div class="card-header  text-white bg-primary">
+     Les fichiers
+      </div>
+      <div class="card-body">
+         	
+        <div class="card">
+      
+          <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Path
+              </th>
+              <th>Taille</th>
+         
+            </tr>
+          </thead>
+          <tbody>
+           
+            <tr *ngFor="let file of files">
+           
+          
+                  <td>{{file.fileName}}</td>
+                  <td>{{file.fileDownloadUri}}</td>
+             </tr>
+       
+        
+           
+          </tbody>
+        </table>
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </div>
+    </div>
+
+</div>
+</div>
+
+   </div>
+   
+ 
+
+<!-- Le mode d'ajout d'une opéartion -->
+<div   bsModal  #MyModalM="bs-modal" class="modal fade"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+   
+  <div class="modal-primary modal-dialog " role="document" >
+      <div class="modal-content">
+          <div class="modal-header">
+      <h4 class="modal-title"> Nouvelle Opération </h4>
+      <button type="button" class="close" (click)="MyModalM.hide()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+    <div class="modal-body">
+      <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" (click)="myModal.show()">Ajouter une nouvelle opération</button>
+      <button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="modal" (click)="MyModalO.show()">Copier une opération standard</button>
+      <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" (click)="MyModalS.show()">Copier une opération spécifique</button>
+
+    </div>
+   
+  </div><!-- /.modal-content -->
+</div>
+</div>
+
+
+
+
+<!-- Le modal  de l'ajout d'une nouvelle opération -->
+
+<div   bsModal  #myModal="bs-modal" class="modal fade"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+   
+  <div class="modal-primary modal-dialog modal-lg" role="document" >
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Ajouter une Opération Spécifique </h4>
+              <button type="button" class="close" (click)="myModal.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+
+          <div class="modal-body">
+           
+            
+            <div class="row">
+                  
+              <div class="col-sm-12">
+            <div class="form-group row">
+              <div class="col">
+              <div class="col-md-24">
+                <label for="nom">Nom</label>
+                  <input type="text" class="form-control" id="nom" placeholder="Saisir le nom de la gamme"
+                   [(ngModel)]="operation.nom" 
+                  name="nom"
+                  required  #nom="ngModel" >
+               </div>
+            </div>
+            <div class="col">
+              <div class="col-md-24">
+                <label for="desgination">Désignation</label>
+                <input type="text" class="form-control" id="desgination" placeholder="Saisir la désignation de la gamme"
+         
+        name="desgination"
+        [(ngModel)]="operation.desgination" 
+        
+        required  #desgination="ngModel"
+        
+                >
+             </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+              <div class="row">
+                  
+                  <div class="col-sm-12">
+                <div class="form-group row">
+                  <div class="col">
+                  <div class="col-md-24">
+                    <label for="reference">Réfernce </label>
+                    <input type="text" class="form-control" id="description" placeholder="Saisir le reference de l'operation"
+                    [(ngModel)]="operation.reference" 
+                    name="reference"
+                    #reference="ngModel"
+                    name="reference"
+                    required >
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="col-md-24">
+                    <label for="numero">Numéro</label>
+                    <input type="text" class="form-control" id="indice" placeholder="Le numéro de cette opération"
+              
+                    name="numero"
+                    [(ngModel)]="operation.numero" 
+                   
+                    required  #numero="ngModel"
+                      >
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>                      
+
+    
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label" >Type Opération</label>
+          <div class="col-md-9 col-form-label">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="typeOperation" id="typeOperation"
+               value="STANDARD"  [(ngModel)]="operation.typeOperation" 
+               
+               required  #typeOperation="ngModel" checked>
+              <label class="form-check-label" for="typeOperation">
+                Standard
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="typeOperation" id="typeOperation"
+               value="SPECIFIQUE"  [(ngModel)]="operation.typeOperation" 
+               
+               required  #typeOperation="ngModel">
+              <label class="form-check-label" for="typeOperation">
+                Spécifique
+              </label>
+            </div>
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Annuler</button>
+              <button type="button" class="btn btn-primary" type="submit" (click)="addOperation()" >Ajouter</button>
+        </div>
+        </div>
+  </div>
+</div>
+</div>
+
+
+<div   bsModal  #MyModalS="bs-modal" class="modal fade"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+   
+  <div class="modal-primary modal-dialog modal-lg" role="document" >
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Ajouter une Opération </h4>
+              <button type="button" class="close" (click)="MyModalS.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+
+          <div class="modal-body">
+           
+           
+            <div class="card">      
+
+            <div class="card-body">
+           
+          
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Indice</th>
+                    <th>Article</th>
+                    <th>Opérations</th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let gamme of gammess">
+                      <td>{{gamme.nom}}</td>
+                      <td>{{gamme.indice}}</td>
+                      <td>{{gamme.article}}</td>
+                    <td>
+                      <table>
+                        <tr  *ngFor="let op of gamme.operations ;let i=index; " (click)="selectRowSelected(op);">
+                          {{op.nom}}
+                        </tr>
+                      </table>
+                    </td>           
+                  </tr>
+             
+                 
+                </tbody>
+              </table>
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="MyModalS.hide()">Annuler</button>
+          </div>
+   
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div   bsModal  #MyModalO="bs-modal" class="modal fade"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+   
+  <div class="modal-primary modal-dialog modal-lg" role="document" >
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Ajouter une Opération </h4>
+              <button type="button" class="close" (click)="MyModalO.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+
+          <div class="modal-body">
+           
+           
+            <div class="card">      
+
+            <div class="card-body">
+           
+          
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Réfernce</th>
+                    <th>Numéro</th>
+                    <th>Désignation</th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let operation of operations;let i=index; " (click)="selectRowSelected(operation);">
+                      <td>{{operation.nom}}</td>
+                      <td>{{operation.reference}}</td>
+                      <td>{{operation.numero}}</td>
+                    
+                     <td>{{operation.desgination}}</td>
+                              
+                  </tr>
+             
+                 
+                </tbody>
+              </table>
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="modifierGammeOperation()">Annuler</button>
+          </div>
+   
+      </div>
+  </div>
+</div>
+</div>
+</div>

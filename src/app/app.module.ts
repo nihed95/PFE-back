@@ -1,3 +1,6 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GammeServiceService } from './gamme/gamme-service.service';
+
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 
@@ -51,11 +54,12 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import { ModeAjoutGammeComponent } from './mode-ajout-gamme/mode-ajout-gamme.component';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import { AjouterGammeComponent } from './ajouter-gamme/ajouter-gamme.component';
-import { CopierGammeComponent } from './copier-gamme/copier-gamme.component';
 
+import { HttpClientModule } from '@angular/common/http';
+//import { GammeOperationComponent } from './gamme/gamme-operation/gamme-operation.component';
+import { ToastrModule } from 'ngx-toastr';
+import { GammeOperationComponent } from './gamme/gamme-operation/gamme-operation.component';
+import { CopierGammeComponent } from './gamme/copier-gamme/copier-gamme.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -70,7 +74,14 @@ import { CopierGammeComponent } from './copier-gamme/copier-gamme.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ModalModule.forRoot(),
-    ChartsModule
+    ChartsModule, 
+     HttpClientModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
     
   ],
   declarations: [
@@ -79,19 +90,21 @@ import { CopierGammeComponent } from './copier-gamme/copier-gamme.component';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent,
-    ModeAjoutGammeComponent,
-    ConfirmDialogComponent,
-    AjouterGammeComponent,
-    CopierGammeComponent
+    RegisterComponent
+    
+    
+   // GammeOperationComponent, 
+   
 
   ],
-  entryComponents: [ModeAjoutGammeComponent,AjouterGammeComponent,CopierGammeComponent],
+  entryComponents: [],
  
   providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+   provide: LocationStrategy,
+ useClass: HashLocationStrategy,
+    
+  } ,
+  GammeServiceService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

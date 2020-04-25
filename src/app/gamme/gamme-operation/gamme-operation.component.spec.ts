@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AjouterGammeComponent } from './ajouter-gamme.component';
+import { GammeOperationComponent } from './gamme-operation.component';
 
-describe('AjouterGammeComponent', () => {
-  let component: AjouterGammeComponent;
-  let fixture: ComponentFixture<AjouterGammeComponent>;
+describe('GammeOperationComponent', () => {
+  let component: GammeOperationComponent;
+  let fixture: ComponentFixture<GammeOperationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AjouterGammeComponent ]
+      declarations: [ GammeOperationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AjouterGammeComponent);
+    fixture = TestBed.createComponent(GammeOperationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -64,8 +64,10 @@ export const routes: Routes = [
       },
       {
         path: 'gamme',
-        loadChildren: () => import('./gamme-composant/gamme.module').then(m => m.GammeModule)
+        loadChildren: () => import('./gamme/gamme.module').then(m => m.GammeModule)
+
       },
+  
       {
         path: 'buttons',
         loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule)
